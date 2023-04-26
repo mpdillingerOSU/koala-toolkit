@@ -1,0 +1,159 @@
+import 'package:gaming_toolkit/koala_toolkit_back_end/templates/template.dart';
+import 'package:gaming_toolkit/koala_toolkit_back_end/templates/unit_list_builder.dart';
+
+import '../data/moves/move.dart';
+import '../data/unit_field.dart';
+import '../data/unit_palette.dart';
+import '../move_element.dart';
+import '../move_type.dart';
+import 'move_list_builder.dart';
+
+class SuperheroTemplate extends Template {
+  SuperheroTemplate() : super('Superhero');
+
+  final Move _gigaPunch = Move(
+    name: 'Giga Punch',
+    description: 'Pow! The only question is, how hard can you punch?',
+    moveNum: 1,
+    element: MoveElement.neutral.toString(),
+    moveType: MoveType.physical.toString(),
+    energyCost: 10,
+    hasPower: true,
+    powerMin: 25,
+    powerMax: 35,
+    rangeMin: 0,
+    rangeMax: 1,
+    accuracy: 100,
+    hasKnockback: false,
+    hasLunge: false,
+    hasLOSModifier: false,
+    hasRangeBoostableModifier: false,
+    hasDirectContactModifier: false,
+    hasUtility: false,
+    hasCompoundingPowerModifier: false,
+    hasDeprecatingPowerModifier: false,
+    hasMultiHit: false,
+    hasPull: false,
+    hasBattleEffect: false,
+    hasBounceback: false,
+    hasRecoil: false,
+    hasCooldown: false,
+    hasSideEffect: false,
+    hasCrashDamage: false,
+  );
+  final Move _gigaKick = Move(
+    name: 'Giga Kick',
+    description: 'Most heroes prefer the punches, but never underestimate a solid kick.',
+    moveNum: 2,
+    element: MoveElement.neutral.toString(),
+    moveType: MoveType.physical.toString(),
+    energyCost: 10,
+    hasPower: true,
+    powerMin: 25,
+    powerMax: 35,
+    rangeMin: 0,
+    rangeMax: 1,
+    accuracy: 100,
+    hasKnockback: false,
+    hasLunge: false,
+    hasLOSModifier: false,
+    hasRangeBoostableModifier: false,
+    hasDirectContactModifier: false,
+    hasUtility: false,
+    hasCompoundingPowerModifier: false,
+    hasDeprecatingPowerModifier: false,
+    hasMultiHit: false,
+    hasPull: false,
+    hasBattleEffect: false,
+    hasBounceback: false,
+    hasRecoil: false,
+    hasCooldown: false,
+    hasSideEffect: false,
+    hasCrashDamage: false,
+  );
+
+  final UnitFieldInt _vitality = UnitFieldInt(
+    name: 'Vitality',
+    defaultVal: 25,
+    minVal: 10,
+    maxVal: 150,
+  );
+  final UnitFieldInt _strength = UnitFieldInt(
+    name: 'Strength',
+    defaultVal: 25,
+    minVal: 10,
+    maxVal: 150,
+  );
+  final UnitFieldInt _intelligence = UnitFieldInt(
+    name: 'Intelligence',
+    defaultVal: 25,
+    minVal: 10,
+    maxVal: 150,
+  );
+  final UnitFieldInt _wisdom = UnitFieldInt(
+    name: 'Wisdom',
+    defaultVal: 25,
+    minVal: 10,
+    maxVal: 150,
+  );
+  final UnitFieldInt _agility = UnitFieldInt(
+    name: 'Agility',
+    defaultVal: 25,
+    minVal: 10,
+    maxVal: 150,
+  );
+  final UnitFieldInt _luck = UnitFieldInt(
+    name: 'Luck',
+    defaultVal: 25,
+    minVal: 10,
+    maxVal: 150,
+  );
+  final UnitFieldBool _flying = UnitFieldBool(
+    name: 'Flying',
+    defaultVal: false,
+  );
+  final UnitFieldEnum _element = UnitFieldEnum(
+    name: 'Element',
+    vals: MoveElement.map.keys.toList(),
+  );
+
+  @override
+  UnitPalette generateUnitPalette() {
+    return UnitPalette(
+      fields: [
+        _vitality,
+        _strength,
+        _intelligence,
+        _wisdom,
+        _agility,
+        _luck,
+        _flying,
+        _element,
+      ],
+    );
+  }
+
+  @override
+  List<MoveListBuilder> generateMoves() {
+    return [
+      MoveListBuilder(
+        'Super Strength',
+        [
+          _gigaPunch,
+          _gigaKick,
+        ],
+      ),
+      MoveListBuilder(
+        'Super Speed',
+        [
+          //TODO: Double Team / Shadow Clone
+        ],
+      ),
+    ];
+  }
+
+  @override
+  List<UnitListBuilder> generateUnits() {
+    return [];
+  }
+}
